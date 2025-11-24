@@ -1,0 +1,69 @@
+/* SimpleMDE Dark Mode Styles */
+.dark .EasyMDEContainer {
+    background-color: rgb(31 41 55) !important;
+    border-color: rgb(55 65 81) !important;
+}
+
+.dark .EasyMDEContainer .CodeMirror {
+    background-color: rgb(31 41 55) !important;
+    color: rgb(229 231 235) !important;
+    border-color: rgb(55 65 81) !important;
+}
+
+.dark .EasyMDEContainer .CodeMirror-cursor {
+    border-left-color: rgb(229 231 235) !important;
+}
+
+.dark .EasyMDEContainer .editor-toolbar {
+    background-color: rgb(17 24 39) !important;
+    border-color: rgb(55 65 81) !important;
+}
+
+.dark .EasyMDEContainer .editor-toolbar button {
+    color: rgb(156 163 175) !important;
+}
+
+.dark .EasyMDEContainer .editor-toolbar button:hover {
+    background-color: rgb(55 65 81) !important;
+    color: rgb(229 231 235) !important;
+}
+
+.dark .EasyMDEContainer .editor-toolbar button.active {
+    background-color: rgb(55 65 81) !important;
+    color: rgb(96 165 250) !important;
+}
+
+.dark .EasyMDEContainer .editor-toolbar i.separator {
+    border-left-color: rgb(55 65 81) !important;
+}
+
+.dark .EasyMDEContainer .CodeMirror-selected {
+    background-color: rgb(55 65 81) !important;
+}
+
+.dark .EasyMDEContainer .editor-preview {
+    background-color: rgb(31 41 55) !important;
+    color: rgb(229 231 235) !important;
+}
+
+.dark .EasyMDEContainer .editor-preview-side {
+    background-color: rgb(31 41 55) !important;
+    color: rgb(229 231 235) !important;
+    border-color: rgb(55 65 81) !important;
+}
+
+/* Light mode adjustments */
+.EasyMDEContainer {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.EasyMDEContainer .CodeMirror {
+    min-height: 200px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.editor-toolbar {
+    border-radius: 0.5rem 0.5rem 0 0;
+}
