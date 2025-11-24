@@ -23,7 +23,13 @@ const productSchema = z.object({
     is_featured: z.boolean().default(false),
 })
 
-type ProductFormValues = z.infer<typeof productSchema>
+type ProductFormValues = {
+    name: string
+    description?: string
+    price: number
+    category: string
+    is_featured: boolean
+}
 
 interface ProductFormProps {
     initialData?: Product
@@ -37,11 +43,11 @@ export function ProductForm({ initialData, onSuccess, onCancel }: ProductFormPro
     const [imagePreview, setImagePreview] = useState<string | null>(initialData?.image_url || null)
 
     const { register, handleSubmit, control, formState: { errors } } = useForm<ProductFormValues>({
-        resolver: zodResolver(productSchema),
+        resolver: zodResolver(productSchema) as any,
         defaultValues: {
             name: initialData?.name || '',
             description: initialData?.description || '',
-            price: initialData?.price || 0,
+            price: initialData?.price ?? 0,
             category: initialData?.category || '',
             is_featured: initialData?.is_featured || false,
         },

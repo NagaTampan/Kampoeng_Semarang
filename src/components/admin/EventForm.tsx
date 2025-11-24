@@ -26,7 +26,17 @@ const eventSchema = z.object({
     is_featured: z.boolean().default(false),
 })
 
-type EventFormValues = z.infer<typeof eventSchema>
+type EventFormValues = {
+    title: string
+    description?: string
+    start_date: string
+    end_date: string
+    start_time?: string
+    location?: string
+    category?: string
+    status: "active" | "inactive"
+    is_featured: boolean
+}
 
 interface EventFormProps {
     initialData?: Event
@@ -40,7 +50,7 @@ export function EventForm({ initialData, onSuccess, onCancel }: EventFormProps) 
     const [imagePreview, setImagePreview] = useState<string | null>(initialData?.image_url || null)
 
     const { register, handleSubmit, control, formState: { errors } } = useForm<EventFormValues>({
-        resolver: zodResolver(eventSchema),
+        resolver: zodResolver(eventSchema) as any,
         defaultValues: {
             title: initialData?.title || '',
             description: initialData?.description || '',
@@ -49,7 +59,7 @@ export function EventForm({ initialData, onSuccess, onCancel }: EventFormProps) 
             start_time: initialData?.start_time || '',
             location: initialData?.location || '',
             category: initialData?.category || '',
-            status: initialData?.status || 'active',
+            status: (initialData?.status as "active" | "inactive") || 'active',
             is_featured: initialData?.is_featured || false,
         },
     })

@@ -79,7 +79,7 @@ export default function ContactPage() {
         } catch (error) {
             if (error instanceof z.ZodError) {
                 // Show first error
-                toast.error(error.errors[0].message)
+                toast.error(error.issues[0].message) // <--- 'issues' is the correct Zod propertymessage)
             } else {
                 toast.error("Terjadi kesalahan. Silakan coba lagi.")
             }
